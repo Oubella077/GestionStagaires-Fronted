@@ -1,0 +1,31 @@
+
+<div class="row ">
+    <div class="col-lg-2 me-3">
+      <img class="rounded-circle" src="https://mdbootstrap.com/img/new/avatars/1.jpg" alt="" style="height: 150px; width:150px;">
+    </div>
+    <div class="col-lg-8 ms-3">
+        <h4> Information Sur l'Encadrant:</h4>
+    <div *ngIf="p" class="card card-body mb-5">
+    <div class="md-form mb-1">
+      <label class="">Nom :</label>
+      <span><strong>{{p.nom}}</strong></span>
+    </div>
+    <div class="md-form mb-1">
+      <label class="">Prenom :</label>
+      <span><strong>{{p.prenom}}</strong></span>
+    </div>
+    <div class="md-form mb-1">
+      <label class="">CIN :</label>
+      <span><strong>{{p.cin}}</strong></span>
+    </div>
+    <div class="md-form mb-1">
+      <label class="">Email :</label>
+      <span><strong>{{p.email}}</strong></span>
+    </div>
+    <div class="md-form mb-0">
+      <label class="">Division:</label>
+      <span><strong> {{p.division.nom_Div}}</strong></span>
+    </div>
+  </div>
+  </div>
+  </div>

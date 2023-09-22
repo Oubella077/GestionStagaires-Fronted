@@ -1,0 +1,83 @@
+<div class="container">
+<div class="form-control d-flex justify-content-between"> 
+  <span class="btn d-flex justify-content-between align-items-center " data-bs-toggle="modal"
+        data-bs-target="#exampleModal" style="background-color:#FF6F6F">    
+          <i class="fa fa-plus fs-5"></i>
+        <h4 class="m-auto ms-2"> Justification</h4>
+      </span>
+
+      <form class="d-flex " style="height: 40px; " (ngSubmit)="search()">
+        <input class="form-control small " name="searchTerm" [(ngModel)]="searchTerm"  type="search"
+          placeholder="Search by cin " aria-label="Search">
+        <button class="btn" type="submit" style="background-color:#FF6F6F"><i class="fa fa-search"></i></button>
+      </form>
+</div>
+      <!--Modal d'absence -->
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter Justification</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-edite-absent [Data]="absents" ></app-edite-absent>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <h4 class="form-control"><strong>Liste Des Absents :</strong></h4> 
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th style="width: 20px;">Profile</th>
+        <th class="me-5 px-4">CIN</th>
+        <th>Date de debut</th>
+        <th>Date de fin</th>
+        <th>Justification</th>
+        <th>Action</th>
+        <!-- <th class="mb">Actions</th> -->
+      </tr>
+    </thead>
+
+    <tbody *ngIf="absents">
+      <tr  *ngFor="let item of absents;let i=index">
+       <td routerLink="/view-stagiaire" [state]="{data: this.item}">
+        <img 
+                src="https://mdbootstrap.com/img/new/avatars/{{i+1}}.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                /></td>
+        <td>         
+          <div class="d-flex align-items-center pointer" >         
+            <div class="ms-3">
+              <p class="fw-bold mb-1">
+                {{item.stagiaire.cin}}</p>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1"></p>
+          <p class="text-muted mb-0">{{item.date_debut | date : 'yyyy-mm-dd'  }}  </p>
+        </td>
+        <td>{{item.date_fin | date : 'yyyy-mm-dd'  }} 
+          <!-- <span class="text-muted mb-0">{{item.encadrent.division.nom_Div}}</span> -->   
+        </td>
+        <td *ngIf="item.justification"> {{item.justification}}</td>
+        <td *ngIf="!item.justification" class="text-danger"> Non Justifier</td>
+        <td>
+          <!-- <button type="button" class="btn btn-link btn-sm btn-rounded"  routerLink="/edit-stagiaire" [state]="{data: this.item}">
+            <i class="fa fa-pen  fs-6 "></i>            </button> -->
+          <button type="button"  (click)="Delete(item.id)"  class="btn btn-link  btn-sm btn-rounded">
+            <i class="fa fa-trash text-danger fs-6 "></i>
+          </button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table></div>

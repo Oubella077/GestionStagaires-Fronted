@@ -1,0 +1,22 @@
+<form [formGroup]="absentFormGroup" (ngSubmit)="SaveAbsent()">
+    <!--  Name input-->
+    <div class="form-outline w-50 mb-4">
+      <label class="form-label">Entrer le  CIN du Stagiaire :</label>
+      <input type="text" class="form-control-input border" formControlName="cin" class="form-control" />
+      <span class="text-danger "
+        *ngIf="absentFormGroup.controls['cin']?.errors &&  absentFormGroup.controls['cin']?.touched  ">
+       Not Valide
+      </span>
+    </div>
+    <div class="form-outline mb-4">
+       <label class="form-label">Date d'Absence</label>
+      <input type="date" class="form-control-input border" formControlName="date_debut" class="form-control" />
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn"  style="background-color:#03CD9D;">Confirme</button>
+    </div>
+    <!-- {{Data | json}}
+    {{stagiaireId | json}} -->
+    </form>

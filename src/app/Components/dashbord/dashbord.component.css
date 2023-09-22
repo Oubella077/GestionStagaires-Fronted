@@ -1,0 +1,7 @@
+.row .cover{
+    background-image:url('/assets/6308.jpg');
+     height: 350px;
+     background-size: cover;
+     border-radius: 30px;
+     background-position: -50px;
+}

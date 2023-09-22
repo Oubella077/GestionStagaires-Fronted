@@ -1,0 +1,36 @@
+<div class="container-fluid  p-4 fs-5 " *ngIf='!showNav'>
+<!--   
+  {{this.service.user.username}}
+  {{this.service.user.roles}}
+  {{this.service.user.isAuthanticated}}
+  {{this.service.access_token}} -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 ">
+   <div><a class="navbar-brand fw-bold" >Manager.</a></div> 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav " style="margin-right:300px ;" >
+        <a class="nav-item nav-link active" href="#home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Features</a>
+        <a class="nav-item nav-link" href="#services">services</a>
+        <a class="nav-item nav-link " href="#footer">Contacts</a>
+      </div>
+      <ul class="navbar">
+        <li *ngIf="!this.service.isLoggedIn()" class="nav-item navbar-nav"><span  class="btn btn-success btn-sm fw-bold mt-1 mx-2 text-white" routerLink="login" >Login</span>
+        </li>
+        <li *ngIf="this.service.isLoggedIn()" class="nav-item navbar-nav"><span  class="btn btn-danger btn-sm fw-bold mt-1 text-white" (click)="handellogout()" >Deconnexion <i class="fa-sharp fa-solid fa-right-to-bracket"></i></span>
+         </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+    
+
+

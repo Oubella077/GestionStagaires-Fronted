@@ -1,0 +1,31 @@
+<form *ngIf="S" (ngSubmit)="saveStage()">
+<div class="card-header mb-3">
+    <h4  >Information sur Stage :</h4>  
+  </div>
+    <div class="form-outline w-50 mb-4">
+        <label class="form-label">Sujet :</label>
+        <input type="text" class="form-control-input border" name="sujet" [value]="S.sujet" [(ngModel)]="S.sujet"   class="form-control" />
+        <!-- <span class="text-danger "
+          *ngIf=" 'sujet'?.errors &&   'sujet'?.touched  ">
+          Name Not Valide
+        </span> -->
+      </div>
+  
+<!-- date input -->
+    <div class="form-outline mb-4"> <label class="form-label">date de debut :</label>    
+        <input type="date" class="form-control-input border" name="date_debut" [value]="S.date_debut" [(ngModel)]="S.date_debut"   class="form-control" />
+        <!-- <span class="text-danger "
+          *ngIf="'date_debut'?.errors && 'date_debut'.touched  ">
+          Name Not Valide
+        </span>      -->
+    </div>
+       
+    <div class="form-outline mb-4"> <label class="form-label">date de fin :</label>
+      <input type="date" class="form-control" name="date_fin" [value]="S.date_fin" [(ngModel)]="S.date_fin"  />
+      <!-- <span class="text-danger  "
+        *ngIf="'date_fin'?.errors && 'date_fin'?.touched">
+         Not Valide
+      </span> -->
+    </div>
+    <button class="btn btn-success submit offset-10 mb-3">Save</button>
+</form>

@@ -1,0 +1,168 @@
+<div class="container">
+  <button class="btn btn-success mt-5 offset-9" data-bs-toggle="modal" data-bs-target="#exampleModall">Export Attestation</button>
+  
+  <div class="modal " id="exampleModall" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabell" aria-hidden="true">
+                  <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabell"><strong>Attestation</strong></h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <app-attestation [stagiaire]="p"> </app-attestation>
+                      </div>      
+                       
+                    </div>
+                  </div>
+                </div>
+                
+  
+  <div class="row  ms-5">
+    <div class="col-lg-2 mx-3">
+      <img id="began" src="https://mdbootstrap.com/img/new/avatars/{{p.id}}.jpg" alt=""
+        style="height: 150px; width:150px;">
+    </div>
+    <!-- {{p | json  }} -->
+    <div class="col-lg-9 pt-3">
+      <div class="p-2 mb-1 bg-light d-flex justify-content-between">
+        <a class="btn " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          <h4> Information Sur le Stagiaire :</h4>
+        </a>
+        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+          aria-expanded="false" aria-controls="collapseExample">
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body mb-2">
+          <!--Grid column-->
+          <div class="md-form mb-0">
+            <label for="email" class="">CIN :</label>
+            <span> <strong>{{p.cin }} </strong></span>
+
+          </div>
+          <div class="md-form mb-0">
+            <label for="name" class="">Name :</label>
+            <span><strong> {{p.nom}}</strong></span>
+          </div>
+
+          <div class="md-form mb-0">
+            <label for="email" class="">Prenom :</label>
+            <span> <strong> {{p.prenom }} </strong></span>
+          </div>
+          <div class="md-form mb-0">
+            <label for="email" class="">Etablissment :</label>
+            <span> <strong> {{p.etablissment}} </strong></span>
+          </div>
+          <div class="md-form mb-0">
+            <label for="email" class="">Date Naissance :</label>
+            <span> <strong> {{p.date_Naissance | date :'dd-MM-yyyy' }} </strong></span>
+          </div>
+
+          <div class="md-form mb-0">
+            <label for="email" class="">Telephone :</label>
+            <span> <strong> {{p.tel}} </strong></span>
+          </div>
+
+          <!--Grid column-->
+        </div>
+      </div>
+      <!-- Stage Information -->
+      <div class="p-2 mb-1 bg-light d-flex justify-content-between">
+        <a class="btn " data-bs-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          <h4> Information Sur le Stage :</h4>
+        </a>
+        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false"
+          aria-controls="collapseExample">
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </div>
+      <div class="collapse" id="collapse1">
+        <div class="card card-body mb-2">
+
+          <div class="md-form mb-0">
+            <label for="name" class="">Sujet :</label>
+            <span><strong> {{p.stage.sujet}}</strong></span>
+          </div>
+
+          <div class="md-form mb-0">
+            <label for="email" class="">Debut du Stage :</label>
+            <span> <strong> {{p.stage.date_debut | date: 'dd-MM-yyyy'}} </strong></span>
+
+          </div>
+          <div class="md-form mb-0">
+            <label for="email" class="">Fin du Stage :</label>
+            <span> <strong> {{p.stage.date_fin}} </strong></span>
+          </div>
+
+          <!--Grid column-->
+
+        </div>
+      </div>
+      <!-- Encadrant part -->
+      <div class="p-2 mb-1 bg-light d-flex justify-content-between">
+
+        <a class="btn " data-bs-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
+          aria-controls="collapse2">
+          <h4> Information Sur l'Encadrent :</h4>
+        </a>
+        <button class="btn " type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+          aria-controls="collapse2">
+          <i class="fa fa-arrow-down"></i>
+
+        </button>
+      </div>
+      <div class="collapse" id="collapse2">
+        <div class="card card-body mb-2">
+          <div class="md-form mb-0">
+            <label class="">Nom :</label>
+            <span><strong> {{p.encadrent.nom}}</strong></span>
+          </div>
+          <div class="md-form mb-0">
+            <label class="">Prenom :</label>
+            <span><strong> {{p.encadrent.prenom}}</strong></span>
+          </div>
+          <div class="md-form mb-0">
+            <label class="">CIN :</label>
+            <span><strong> {{p.encadrent.cin}}</strong></span>
+          </div>
+
+          <div class="md-form mb-0">
+            <label class="">Email :</label>
+            <span><strong> {{p.encadrent.email}}</strong></span>
+          </div>
+
+          <div class="md-form mb-0">
+            <label class="">Division:</label>
+            <span><strong> {{p.encadrent.division.nom_Div}}</strong></span>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+<!-- <div class="modal modal-xl" id="exampleModall" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalLabell" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabell"><strong>Product Information</strong></h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <app-view > </app-view>
+                      </div>      
+                       <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+ 
+ 

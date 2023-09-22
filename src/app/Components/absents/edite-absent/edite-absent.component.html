@@ -1,0 +1,31 @@
+<form [formGroup]="justifyFormGroup" (ngSubmit)="justifier()">
+    <!--  Name input-->
+    <div class="form-outline w-50 mb-4">
+      <label class="form-label">Entrer le  CIN du Stagiaire :</label>
+      <input type="text" class="form-control-input border"  formControlName="cin" class="form-control" />
+      <span class="text-danger "
+        *ngIf="justifyFormGroup.controls['cin']?.errors &&  justifyFormGroup.controls['cin']?.touched  ">
+       Not Valide
+      </span>
+    </div>
+    <div class="form-outline mb-4">
+       <label class="form-label">Justification</label>
+      <input type="text" class="form-control-input border" formControlName="justification" class="form-control" />     
+    <span class="text-danger "
+        *ngIf="justifyFormGroup.controls['justification']?.errors &&  justifyFormGroup.controls['justification']?.touched  ">
+       Not Valide
+      </span>
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label">Date Fin d'Absence</label>
+       <input type="date" class="form-control-input border" formControlName="date_fin" class="form-control" />     
+       <span class="text-danger "
+       *ngIf="justifyFormGroup.controls['date_fin']?.errors &&  justifyFormGroup.controls['date_fin']?.touched  ">
+      Not Valide
+     </span>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn"  style="background-color:#FF6F6F">Confirme</button>
+    </div>
+    </form>

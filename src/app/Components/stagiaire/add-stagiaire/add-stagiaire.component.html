@@ -1,0 +1,123 @@
+<div (st)="Stages" class="container col-8 pt-5">
+  <div class="card p-4 mb-5">
+    <div class="card-header mb-3">
+      <h4  >Entrer Information Sur le Stagiaire :</h4>  
+    </div>
+  <form [formGroup]="stagiaireFormGroup" (ngSubmit)="Savestagiaire()">
+    <!--  Name input-->
+    <div class="form-outline w-50 mb-4">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control-input border" formControlName="nom" class="form-control" />
+      <span class="text-danger "
+        *ngIf="stagiaireFormGroup.controls['nom']?.errors &&  stagiaireFormGroup.controls['nom']?.touched  ">
+        Name Not Valide
+      </span>
+    </div>
+    <div class="form-outline mb-4">
+       <label class="form-label">Prenom</label>
+      <input type="text" class="form-control-input border" formControlName="prenom" class="form-control" />
+      <span class="text-danger "
+        *ngIf="stagiaireFormGroup.controls['prenom']?.errors && stagiaireFormGroup.controls['prenom']?.touched  ">
+        Name Not Valide
+      </span>
+    </div>
+    <!-- Email input -->
+    <div class="form-outline mb-4"> <label class="form-label">Email </label>
+
+      <input type="email" class="form-control " formControlName="email" class="form-control" />
+      <span class="text-danger  "
+        *ngIf="stagiaireFormGroup.controls['email']?.errors && stagiaireFormGroup.controls['email']?.touched  ">
+        Email Not Valide
+      </span>
+    </div>
+
+    <!-- Mobile input -->
+    <div class="form-outline mb-4"> <label class="form-label">Telephone :</label>
+
+      <input type="number" class="form-control " formControlName="tel" class="form-control" />
+      <span class="text-danger  "
+        *ngIf="stagiaireFormGroup.controls['tel']?.errors && stagiaireFormGroup.controls['tel']?.touched  ">
+        nb Not Valide
+      </span>
+    </div>
+
+    <!-- cin input -->
+    <div class="form-outline mb-4"> <label class="form-label">CIN </label>
+      <input type="text" class="form-control " formControlName="cin" class="form-control" />
+      <span class="text-danger  "
+        *ngIf="stagiaireFormGroup.controls['cin']?.errors &&  stagiaireFormGroup.controls['cin']?.touched  ">
+        CIN Not Valide
+      </span>
+    </div>
+
+       <!-- Etablissment input -->
+    <div class="form-outline mb-4"> <label class="form-label">Nom d'Etablissment : </label>
+      <input type="text" class="form-control " formControlName="etablissment" class="form-control" />
+      <span class="text-danger  "
+        *ngIf="stagiaireFormGroup.controls['etablissment']?.errors &&  stagiaireFormGroup.controls['etablissment']?.touched  ">
+         Not Valide
+      </span>
+    </div>
+
+    <!-- date input -->
+    <div class="form-outline mb-4"> <label class="form-label">Birthdate </label>
+      <input type="date" class="form-control " formControlName="date" class="form-control" />
+      <span class="text-danger  "
+        *ngIf="stagiaireFormGroup.controls['date']?.errors &&  stagiaireFormGroup.controls['date']?.touched  ">
+        CIN Not Valide
+      </span>
+    </div>
+    <div class="card-header mb-3">
+      <h4  >Information sur Stage :</h4>  
+    </div>
+    <div class="form-outline mb-4"> <label class="form-label">Le Sujet du Stage :</label>
+      <select *ngIf="stages" class="form-select"  (change)="selectedstage($event)" aria-label="Default select example">
+        <option >select a subject</option>
+        <option value={{item.id}}  text="{{item.sujet}}" *ngFor="let item of stages" >{{item.sujet}}          
+        </option>
+      </select>
+    </div>
+ <!-- date input -->
+      <div class="form-outline mb-4"> <label class="form-label">date de debut :</label>    
+        <td>{{ Dd | date }}</td>      
+      </div>    
+      <div class="form-outline mb-4"> <label class="form-label">date de fin :</label>
+        <input type="date" class="form-control "     class="form-control" />
+        <span class="text-danger  "
+          *ngIf="stagiaireFormGroup.controls['date']?.errors &&  stagiaireFormGroup.controls['date']?.touched  ">
+           Not Valide
+        </span>
+      </div>
+      <div class="card-header mb-3">
+        <h4  >Affecter un Encadrent :</h4>  
+      </div>
+      <div *ngIf="encadrent" class="form-outline mb-4"> <label class="form-label">Selecter un Encadrent :</label>
+        <select  class="form-select mt-3"  (change)="selectedEnc($event)" aria-label="Default select example">
+          <option>  -select a division-  </option>
+          <option value={{item.id}}   *ngFor="let item of encadrent" >{{item.division.nom_Div}}          
+          </option>
+        </select>
+        <select class="form-select mt-3"  (change)="selectedEnc($event)" aria-label="Default select example">
+          <option >-encadrent name-</option>
+          <option value={{item.id}}   *ngFor="let item of encadrent" >{{item.nom}}          
+          </option>
+        </select>
+
+        
+      </div>    
+
+
+    <!-- Checkbox -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <input class="form-check-input me-2" type="checkbox" value="" checked />
+      <label class="form-check-label" for="form5Example3">
+        Check Your info to Save!
+      </label>
+    </div>
+
+
+    <!-- Submit button -->
+    <button  type="submit" class="btn btn-primary offset-5 mb-4">Save!</button>
+  </form>
+</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="all-pages container w-75" #content>
+
+
+    <div class="row w-100 pb-5 mb-5">
+        <div style="display: flex; justify-content:space-between;">
+            <h1>Manager.</h1>
+            <img style="height: 80px;" src="/assets/employee.png" alt="">
+        </div>
+    </div>
+
+    <h3 class="text-center pb-5">Attestation de stage</h3>
+
+    <p class="text-start fs-5" style="line-break: normal;">Je soussigné Monsieur KArim, agissant en qualité de (préciser
+        la fonction) de l'entreprise <strong>Manager.</strong> dont le siège social se situe au (indiquer l'adresse du
+        siège social de l'entreprise), certifie par la présente avoir accueilli au sein de l'entreprise ,
+        Monsieur <strong>{{stagiaire.nom}}</strong><strong> {{stagiaire.prenom}}</strong> , porteur du CIN :<strong>{{stagiaire.cin}}</strong>  pour un stage
+        destiné à lui faire découvrir le métier de (préciser la nature du stage).
+
+        Je précise, par la présente, que ce stage s'est déroulé du (indiquer la date de début du stage) au (indiquer la
+        date de fin du stage). Tout au long de cette période, (Madame, Monsieur) (indiquer Nom Prénom du stagiaire) a su
+        répondre à ses obligations de stagiaire, notamment dans l'exercice des missions qui lui ont été confiées.
+        Il/Elle s'est par ailleurs montré(e) très attentif/ve aux conseils et à la formation qui lui ont été prodigués
+        en vue d'exercer le métier de (préciser à nouveau).
+
+        Cette attestation est délivrée à la demande du stagiaire pour servir et valoir ce que de droit.
+
+    </p>
+    <p class="text-center  offset-5 mt-2 mt-3">Fait le (préciser la date)</p>
+</div>
+ 
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="onConfirm()" >Download</button>
+  </div>

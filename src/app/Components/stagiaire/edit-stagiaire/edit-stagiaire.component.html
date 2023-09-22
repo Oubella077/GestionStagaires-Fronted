@@ -1,0 +1,93 @@
+<div  class="container col-8 pt-5">
+    <div class="card p-4 mb-5">
+      <div class="card-header mb-3">
+        <h4  >Entrer Information Sur le Stagiaire :</h4>  
+      </div>
+    <form (ngSubmit)="Savestagiaire()"> 
+      <!--  Name input-->
+      <div class="form-outline w-50 mb-4">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control-input border" [value]="S.nom" name="nom" [(ngModel)]="S.nom"  class="form-control" />
+      </div>
+
+      <div class="form-outline mb-4">
+         <label class="form-label">Prenom</label> 
+        <input type="text" class="form-control-input border" name="prenom" [(ngModel)]="S.prenom" [value]="S.prenom"  name="prenom" class="form-control" />     
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4"> <label class="form-label">Email </label>
+        <input type="email" class="form-control" [(ngModel)]="S.email"  [value]="S.email" name="email"  class="form-control" />    
+      </div>
+  
+      <!-- Mobile input -->
+      <div class="form-outline mb-4"> <label class="form-label">Telephone :</label>
+        <input type="number" class="form-control"[(ngModel)]="S.tel" [value]="S.tel" name="tel" class="form-control" />
+      </div>
+  
+      <!-- cin input -->
+      <div class="form-outline mb-4"> <label class="form-label">CIN </label>
+        <input type="text" class="form-control" [value]="S.cin" [(ngModel)]="S.cin" name="cin" class="form-control" />
+      </div>
+  
+         <!-- Etablissment input -->
+      <div class="form-outline mb-4"> <label class="form-label">Nom d'Etablissment : </label>
+        <input type="text" class="form-control" name="etablissment" [value]="S.etablissment" [(ngModel)]="S.etablissment"  class="form-control" />
+      </div>
+  
+      <!-- date input -->
+      <div class="form-outline mb-4"> <label class="form-label">Birthdate </label>
+        <input type="date" class="form-control " name="date" [value]="S.date" [(ngModel)]="S.date"  class="form-control" />
+      </div>  
+      <div class="card-header mb-3">
+        <h4  >Information sur Stage :</h4>  
+      </div>
+      <div class="form-outline mb-4"> <label class="form-label">Le Sujet du Stage :</label>
+        <select  class="form-select"  aria-label="Default select example">
+          <option >select a subject</option>
+        
+          <option value={{item.id}}  text="{{item.sujet}}" *ngFor="let item of stage" >{{item.sujet}}          
+          </option>
+        </select>
+      </div>
+   <!-- date input -->
+        <div class="form-outline mb-4"> <label class="form-label">date de debut :</label>    
+          <!-- <td>{{ Dd | date }}</td>       -->
+        </div>         
+        <div class="form-outline mb-4"> <label class="form-label">date de fin :</label>
+          <input type="date" class="form-control "     class="form-control" />          
+        </div>  
+        <div class="card-header mb-3">
+          <h4  >Affecter un Encadrent :</h4>    
+        </div>
+        <div  class="form-outline mb-4"> <label class="form-label">Selecter un Encadrent :</label>
+  
+          <select  class="form-select mt-3"   aria-label="Default select example">
+            <option>  -select a division-  </option>
+            <option>        
+            </option>
+          </select>
+          <select class="form-select mt-3"    aria-label="Default select example">
+            <option >-encadrent name-</option>
+            <option >          
+            </option>
+          </select>        
+        </div>    
+      <!-- Checkbox -->
+      <div class="form-check d-flex justify-content-center mb-4">
+        <input class="form-check-input me-2" type="checkbox" value="" checked />
+        <label class="form-check-label" for="form5Example3">
+          Check Your info to Save!
+        </label>
+      </div>
+      <!-- Submit button -->
+      <button  type="submit" class="btn btn-edite offset-5 mb-4">Save!</button>
+    </form>
+    <!-- </form> -->
+  </div>
+  <!-- <pre>{{S.prenom }}</pre>
+  <pre>{{S.nom }}</pre>
+  <pre>{{S.tel }}</pre>
+  <pre>{{S.date }}</pre> -->
+  </div>
+ 

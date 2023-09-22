@@ -1,0 +1,53 @@
+
+ <div class="container">
+ </div><div class=" w3-sidebar w3-bar-block  w3-animate-left" style="display:none; z-index: 10;" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large d-flex justify-content-end"
+  onclick="w3_close()"><i class="fas fa-times fs-4"></i></button>
+  <a  class="w3-bar-item w3-button"  routerLink="/menu" >
+    <i class="fa-solid fa-home fs-5  me-2">  </i> <strong> Dashbord</strong> </a>
+  <a  class="w3-bar-item w3-button"  routerLink="/menu/stagiaire" (click)=disable() ><i class="fa-solid fa-list fs-5  me-2">  </i> <strong> Stagiaires</strong> </a>
+  <a  class=" w3-bar-item w3-button" routerLink="/menu/stage" (click)=disable() ><i class="fa  fa-briefcase  me-3"></i><strong>Stages</strong></a>
+  <a  class="w3-bar-item w3-button"  routerLink="/menu/encadrant" (click)=disable()><i class="fa fa-user-nurse me-3"></i><strong>Encadrant</strong></a>
+  <a  class="w3-bar-item w3-button"  routerLink="/menu/absents" (click)=disable()><i class="fa fa-thumbtack me-3"></i><strong>Absents</strong></a>
+</div>
+<div>
+  <button class="ms-4 w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+  <div class="">
+  </div>
+</div>
+ <div class="container">
+ </div>
+{{disabllle}}
+<div class="container" *ngIf="disablle" style="margin-top: -60px;">
+  <div class="row w-100 d-flex justify-content-center">
+    
+    <div class="card me-2 cursor-pointer" routerLink="/menu/stagiaire" (click)=disable()
+      style="width: 18rem;background-color:#BDC3C7; cursor: pointer;">
+      <div class="card-body">
+        <h3 class="card-title">33 <i class="fa fa-user fs-6 "></i> </h3>
+        <p class="card-text fw-bold">Stagiaires</p>
+        <div class="text-center"><i class="fa fa-chart-line fs-1"></i></div>
+      </div>
+    </div>
+    <div class="card  me-2" routerLink="/menu/encadrant" (click)=disable() style="width:18rem; background-color:#FF6F6F;cursor: pointer;">
+      <div class="card-body">
+        <h3 class="card-title">11 <i class="fa fa-user fs-6"></i></h3>
+        <p class="card-text fw-bold">Encadrant</p>
+        <div class="text-center"><i class="fa fa-chart-bar fs-1"></i></div>
+      </div>
+    </div>
+    <div class="card pointer" routerLink="/menu/stage" (click)=disable() style="width: 18rem;cursor: pointer;background-color: #B2EBF9;">
+      <div class="card-body">
+        <h3 class="card-title">22 <i class="fa fa-file fs-6"></i></h3>
+        <p class="card-text fw-bold">Stages</p>
+        <div class="text-center"><i class="fa fa-briefcase fs-1"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cover m-4">
+    </div>
+  </div>
+</div>
+
+<router-outlet *ngIf="disablle2"></router-outlet>
